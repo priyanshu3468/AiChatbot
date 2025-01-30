@@ -1,0 +1,184 @@
+:root {
+  --primary-color: #646cff;
+  --primary-hover: #535bf2;
+  --background-dark: #1e1e2e;
+  --background-light: #f8f9fa;
+  --text-dark: #333333;
+  --text-light: #ffffff;
+  --button-background: #646cff;
+  --button-hover: #535bf2;
+  --border-radius: 12px;
+
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* General Body Style */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--background-dark);
+  color: var(--text-light);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Chatbot Container */
+#root {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #2a2d3a;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Textarea Styling */
+textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  border: 1px solid #3e4256;
+  border-radius: var(--border-radius);
+  background-color: #1e1e2e;
+  color: var(--text-light);
+  resize: none;
+  box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease, transform 0.2s;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-hover);
+  box-shadow: 0 0 10px rgba(83, 91, 242, 0.5);
+  transform: scale(1.02);
+}
+
+/* Button Styling */
+button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.8em 1.2em;
+  font-size: 1.1em;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--button-background);
+  color: var(--text-light);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 15px rgba(83, 91, 242, 0.5);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Pre Element Styling */
+pre {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #232634;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  text-align: left;
+  white-space: pre-wrap;
+  color: var(--text-light);
+  word-wrap: break-word;
+  box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Scale-in Animation */
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Add scale-in animation to all interactive elements */
+textarea,
+button,
+pre {
+  animation: scaleIn 0.4s ease-in-out;
+}
+
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+  }
+
+  #root {
+    background-color: #ffffff;
+    color: var(--text-dark);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    color: var(--primary-hover);
+  }
+
+  textarea {
+    background-color: #f0f4f8;
+    color: var(--text-dark);
+    border: 1px solid #ced4da;
+  }
+
+  button {
+    background-color: var(--primary-color);
+    color: #ffffff;
+  }
+
+  pre {
+    background-color: #f8f9fa;
+    color: var(--text-dark);
+    border: 1px solid #ddd;
+  }
+}
